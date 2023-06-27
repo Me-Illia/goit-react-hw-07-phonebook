@@ -8,7 +8,6 @@ export const contactSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducerPath: 'contacts',
   extraReducers: {
     [fetchContacts.pending]: state => {
       state.isLoading = true;
@@ -18,7 +17,6 @@ export const contactSlice = createSlice({
       state.error = null;
       state.items = action.payload;
     },
-    providesTags: ['Contacts'],
     [fetchContacts.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
@@ -32,7 +30,6 @@ export const contactSlice = createSlice({
       state.error = null;
       state.items.push(action.payload);
     },
-    invalidatesTags: ['Contacts'],
     [addContact.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
